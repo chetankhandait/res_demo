@@ -81,8 +81,8 @@ const startServer = async () => {
     console.log('Database connected successfully.');
     
     // Sync models (force: false in production)
-    // await sequelize.sync({ force: false }); 
-    // console.log('Database synced.');
+    await sequelize.sync({ force: false }); 
+    console.log('Database synced.');
 
     // Load active queues
     await queueManager.loadActiveQueues();

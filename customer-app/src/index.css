@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #10B981; /* Green-500 */
-  --color-primary-dark: #059669; /* Green-600 */
-  --color-secondary: #F3F4F6; /* Gray-100 */
+  --color-primary: #059669; /* Emerald-600 - Premium Deep Green */
+  --color-primary-dark: #065f46; /* Emerald-800 - Contrast */
+  --color-primary-light: #10b981; /* Emerald-500 - Highlight */
+  --color-secondary: #F8FAFC; /* Slate-50 - Premium White/Gray */
   --font-sans: 'Inter', sans-serif;
+  
+  /* Additional premium accents */
+  --color-gold: #D4AF37; 
 }
 
 :root {

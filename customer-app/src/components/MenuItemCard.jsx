@@ -41,13 +41,16 @@ const MenuItemCard = ({ item }) => {
   return (
     <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex gap-4">
        {/* Image */}
-       <div className="w-24 h-24 flex-shrink-0 bg-gray-100 rounded-xl overflow-hidden">
+       <div className="w-28 h-28 flex-shrink-0 bg-gray-50 rounded-xl overflow-hidden shadow-sm relative group">
           <img 
             src={item.image_url} 
             alt={item.name} 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             onError={(e) => e.target.src = 'https://placehold.co/100?text=No+Image'}
+            loading="lazy"
           />
+          {/* subtle overlay gradient */}
+          <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity" />
        </div>
 
        {/* Details */}

@@ -82,6 +82,8 @@ const CartPage = () => {
                             if (orderRes.data.order) {
                                 toast.success('Order placed successfully!', { id: toastId });
                                 clearCart();
+                                // Persist order ID for tracking
+                                localStorage.setItem('last_order_id', orderRes.data.order.order_id);
                                 navigate(`/track/${orderRes.data.order.order_id}`);
                             }
                         } else {
