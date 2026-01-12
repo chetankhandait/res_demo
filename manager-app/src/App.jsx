@@ -7,10 +7,13 @@ import Login from './pages/Login';
 import Analytics from './pages/Analytics';
 import StationMonitor from './pages/StationMonitor';
 
+import MobileNavbar from './components/MobileNavbar';
+
 const Layout = ({ children, onLogout }) => (
-    <div className="flex min-h-screen bg-slate-50">
+    <div className="flex min-h-screen bg-slate-50 pt-[72px] md:pt-0">
         <Sidebar onLogout={onLogout} />
-        <main className="flex-1 ml-64">
+        <MobileNavbar onLogout={onLogout} />
+        <main className="flex-1 w-full md:ml-64">
             {children}
         </main>
     </div>

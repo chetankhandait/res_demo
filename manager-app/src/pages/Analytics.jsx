@@ -28,7 +28,7 @@ const Analytics = () => {
     }, []);
 
     return (
-        <div className="p-8 space-y-8">
+        <div className="p-4 md:p-8 space-y-8">
             <h1 className="text-2xl font-bold text-slate-800">Business Analytics</h1>
             
             {/* KPI Cards */}
