@@ -48,7 +48,12 @@ const RecentOrders = () => {
     const fetchOrders = async () => {
         try {
             const res = await api.get('/orders/active');
-            setOrders(res.data);
+            if (Array.isArray(res.data)) {
+                setOrders(res.data);
+            } else {
+                console.error('Invalid orders data:', res.data);
+                setOrders([]);
+            }
         } catch (err) {
             console.error(err);
         }
@@ -72,7 +77,7 @@ const RecentOrders = () => {
             </h2>
             
             <div className="flex-1 overflow-y-auto space-y-3 pr-2">
-                {orders.length === 0 ? (
+                {!Array.isArray(orders) || orders.length === 0 ? (
                     <div className="text-center text-slate-400 py-10">No active orders</div>
                 ) : (
                     orders.map(order => (

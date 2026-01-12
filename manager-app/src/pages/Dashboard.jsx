@@ -24,11 +24,15 @@ const Dashboard = () => {
     const fetchTables = async () => {
         try {
             const res = await api.get('/tables');
-            setTables(res.data);
-            
-            // Calc stats
-            const active = res.data.filter(t => t.status === 'occupied').length;
-            setStats(prev => ({ ...prev, activeTables: active }));
+            if (Array.isArray(res.data)) {
+                setTables(res.data);
+                // Calc stats
+                const active = res.data.filter(t => t.status === 'occupied').length;
+                setStats(prev => ({ ...prev, activeTables: active }));
+            } else {
+                console.error('Invalid tables data:', res.data);
+                setTables([]);
+            }
             
             setLoading(false);
         } catch (err) {
